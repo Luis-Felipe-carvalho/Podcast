@@ -1,4 +1,6 @@
 <?php
+// Inclui a configuração para obter a conexão $conn
+include_once '../config.php';
 
 // Função para registrar um novo usuário
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro</title>
+    <title>Login</title>
 </head>
 
 <body>
-    <h2>Cadastro de Usuário</h2>
+    <h2>Login de Usuário</h2>
     <form method="post" action="">
         <label for="email">Email:</label>
         <input type="email" name="email" required>
@@ -37,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="senha">Senha:</label>
         <input type="password" name="senha" required>
         <br>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Entrar</button>
     </form>
 
     <br>
-    <a href="login.php"><button>Ir para Login</button></a>
+    <a href="Cadastrar.php"><button>Ir para Cadastro</button></a>
 </body>
 
 </html>
