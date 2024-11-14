@@ -1,15 +1,23 @@
 <?php
-
 if (isset($_POST['submit'])) {
     include_once('config.php');
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(email,senha) 
-        VALUES ('$email','$senha')");
 
-    header('Location: login.php');
+    // Insere o usuário no banco de dados com segurança usando PDO
+    $sql = "INSERT INTO usuarios (email, senha) VALUES (:email, :senha)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':senha', $senha);
+
+    if ($stmt->execute()) {
+        // Redireciona para a página de login se a inserção for bem-sucedida
+        header('Location: login.php');
+        exit();
+    } else {
+        echo "Erro ao inserir os dados!";
+    }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +34,7 @@ if (isset($_POST['submit'])) {
     <div class="box">
         <form action="formulario.php" method="POST">
             <fieldset>
-                <legend><b>Fórmulário de Clientes</b></legend>
+                <legend><b>Formulário de Clientes</b></legend>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" required>
