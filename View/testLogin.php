@@ -23,7 +23,7 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']
         // Login bem-sucedido
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header('Location: #entrarnosite#');
+        header('Location: index.html');
     }
 } else {
     // Redireciona para a página de login se os campos estiverem vazios
