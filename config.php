@@ -7,6 +7,7 @@ $dbName = 'podcast';
 
 try {
     // Conexão usando PDO com MySQL
+    
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUsername, $dbPassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {

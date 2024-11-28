@@ -18,6 +18,7 @@
             </div>
             <a href="index2.html">Destaques</a>
             <a href="sair.php">Sair</a>
+            <a href="#">Adicionar Podcast</a>
         </div>
         <div class="fraseimagem">
             <ul>
